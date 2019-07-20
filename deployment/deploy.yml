@@ -16,7 +16,7 @@ spec:
         app: my-profile-${BUILD_ENV}
     spec:
       containers:
-        - name: my-profile-{BUILD_ENV}
+        - name: my-profile
           image: yadavsudhir405/my-profile:${BUILD_NUMBER}
           ports:
             - containerPort: 4000
