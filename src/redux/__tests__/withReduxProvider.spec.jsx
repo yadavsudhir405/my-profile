@@ -1,16 +1,16 @@
-import React from 'react';
-import { render } from '@testing-library/react';
+import React from "react";
+import { render } from "@testing-library/react";
 
-import withRedux from '../withReduxProvider';
+import withRedux from "../withReduxProvider";
 
-describe('WithReduxProvider', () => {
-  it('should match snapshot', () => {
+describe("WithReduxProvider", () => {
+  it("should match snapshot", () => {
     const props = {
       router: {
         location: {
-          pathname: '/login',
-        },
-      },
+          pathname: "/login"
+        }
+      }
     };
 
     const component = props => <div {...props}>Redux</div>;

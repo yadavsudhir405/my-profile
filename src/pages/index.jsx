@@ -1,5 +1,5 @@
-import React from 'react';
-import Images from '../constants/images';
+import React from "react";
+import Images from "../constants/images";
 
 const Index = () => (
   <div>

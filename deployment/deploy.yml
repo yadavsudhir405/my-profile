@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: my-profile-${BUILD_ENV}
+spec:
+  replicas: 2
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: my-profile-${BUILD_ENV}
+    spec:
+      containers:
+        - name: my-profile-{BUILD_ENV}
+          image: yadavsudhir405/my-profile:${BUILD_NUMBER}
+          ports:
+            - containerPort: 4000
