@@ -26,7 +26,7 @@ deploy_dev:
   script:
     - apk add gettext
     -  kubectl config current-context
-    -  /bin/sh deploy.sh ${CI_BUILD_REF_NAME}_${CI_BUILD_REF} dev 40000
+    -  /bin/sh deploy.sh ${CI_BUILD_REF_NAME}_${CI_BUILD_REF} dev 30001
   environment:
     name: dev
   only:
@@ -37,7 +37,7 @@ deploy_prd:
   script:
     - apk add gettext
     -  kubectl config current-context
-    - /bin/sh deploy.sh ${CI_BUILD_REF_NAME}_${CI_BUILD_REF} prod 41000
+    - /bin/sh deploy.sh ${CI_BUILD_REF_NAME}_${CI_BUILD_REF} prod 31001
   environment:
     name: prod
   when: manual
