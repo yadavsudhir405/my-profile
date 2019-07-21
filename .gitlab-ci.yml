@@ -2,7 +2,6 @@ image: yadavsudhir405/dind-java-kubectl
 
 stages:
   - build
-  - dev-deploy
   - prod-deploy
 before_script:
   - docker login -u $username -p $password
@@ -21,25 +20,13 @@ build_upload_image:
     - docker push yadavsudhir405/my-profile:${CI_BUILD_REF_NAME}_${CI_BUILD_REF}
   only:
     - master
-deploy_dev:
-  stage: dev-deploy
-  script:
-    - apk add gettext
-    -  kubectl config current-context
-    -  /bin/sh deploy.sh ${CI_BUILD_REF_NAME}_${CI_BUILD_REF} dev 30002
-  environment:
-    name: dev
-  only:
-    - master
-
-deploy_prd:
+deploy_prod:
   stage: prod-deploy
   script:
     - apk add gettext
     -  kubectl config current-context
-    - /bin/sh deploy.sh ${CI_BUILD_REF_NAME}_${CI_BUILD_REF} prod 31002
+    -  /bin/sh deploy.sh ${CI_BUILD_REF_NAME}_${CI_BUILD_REF} prod 30002
   environment:
     name: prod
-  when: manual
   only:
     - master
