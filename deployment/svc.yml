@@ -5,7 +5,7 @@ metadata:
   labels:
     app: my-profile-${BUILD_ENV}
 spec:
-  type: ClusterIP
+  type: nodePort
   ports:
     - port: ${PORT_NUMBER}
       targetPort: 4000
