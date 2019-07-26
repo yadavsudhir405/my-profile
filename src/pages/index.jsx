@@ -1,5 +1,7 @@
 import React from "react";
+
 import Images from "../constants/images";
+import withLayout from "../layouts/WithLayoutProvider";
 
 const Index = () => (
   <div>
@@ -8,4 +10,4 @@ const Index = () => (
   </div>
 );
 
-export default Index;
+export default withLayout(Index);

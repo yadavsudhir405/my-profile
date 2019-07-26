@@ -1,8 +1,8 @@
-import React from 'react';
-import { ThemeProvider } from 'styled-components';
-import { MuiThemeProvider } from '@material-ui/core/styles';
+import React from "react";
+import { ThemeProvider } from "styled-components";
+import { MuiThemeProvider } from "@material-ui/core/styles";
 
-import theme from './theme';
+import theme from "./theme";
 
 const withTheme = WrappedComponent => props => (
   <ThemeProvider theme={theme}>

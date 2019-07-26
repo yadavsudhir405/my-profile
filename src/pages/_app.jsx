@@ -1,15 +1,18 @@
-import React from 'react';
-import { compose } from 'redux';
-import NextApp, { Container } from 'next/app';
+import React from "react";
+import { compose } from "redux";
+import NextApp, { Container } from "next/app";
 
-import withRedux from '../redux/withReduxProvider';
-import withTheme from '../themes/withThemeProvider';
+import CssBaseline from "@material-ui/core/CssBaseline";
+
+import withRedux from "../redux/withReduxProvider";
+import withTheme from "../themes/withThemeProvider";
 
 class App extends NextApp {
   render() {
     const { Component, pageProps } = this.props;
     return (
       <Container>
+        <CssBaseline />
         <Component {...pageProps} />
       </Container>
     );
@@ -18,5 +21,5 @@ class App extends NextApp {
 
 export default compose(
   withRedux,
-  withTheme,
+  withTheme
 )(App);
