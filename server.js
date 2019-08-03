@@ -16,6 +16,7 @@ app.prepare().then(() => {
   server.use(cookieParser());
   server.use('/assets', express.static(path.join(__dirname, 'src', 'assets')));
 
+
   server.get('*', (req, res) => {
     return handle(req, res);
   });

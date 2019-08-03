@@ -36,10 +36,12 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <title>Sudhir Yadav | Software Engineer</title>
           <link
             href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
             rel="stylesheet"
           />
+          <link rel="shortcut icon" type="image/x-icon" href="/static/favicon.ico" />
         </Head>
         <body>
           <Main />
