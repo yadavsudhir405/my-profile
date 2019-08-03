@@ -5,22 +5,24 @@ import { compose } from "redux";
 
 const styles = theme => ({
   container: {
-    margin: "0",
-    padding: "0",
+    margin: 0,
+    padding: 0,
     background: theme.background,
+    width: "100%",
     minHeight: "100vh"
   },
   main: {
     flex: 1,
-    maxWidth: "1280px"
+    display:"flex",
+    flexDirection: "column",
   }
 });
 
 const withLayout = WrappedComponent => ({ classes, ...props }) => (
   <Box display="flex" flexDirection="column" className={classes.container}>
     <Header />
-    <main>
-      <WrappedComponent {...props} className={classes.main} />
+    <main className={classes.main}>
+      <WrappedComponent {...props} />
     </main>
   </Box>
 );

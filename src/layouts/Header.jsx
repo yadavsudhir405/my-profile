@@ -1,14 +1,20 @@
 import { Box, withStyles } from "@material-ui/core";
+import Images from "../constants/images";
+import React from "react";
 
 const styles = theme => ({
   root: {
-    height: "20%",
+    minHeight: '45px',
     width: "100%",
-    padding: `${theme.spacing(4)}  ${theme.spacing(2)}`,
-    boxShadow: "rgba(2, 12, 27, 0.7) 0px 10px 30px -10px"
+    padding: `${theme.spacing(4)}  ${theme.spacing(4)}`,
+    borderBottom: '1px solid red'
   }
 });
 
-const Header = () => <Box>Header</Box>;
+const Header = ({ classes }) => (
+  <Box classes={{ root: classes.root }}>
+    <img src={Images.LOGO} alt="logo" />
+  </Box>
+);
 
 export default withStyles(styles)(Header);
