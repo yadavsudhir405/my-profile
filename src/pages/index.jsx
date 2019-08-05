@@ -1,6 +1,9 @@
 import React from "react";
+
+import { Box, withStyles } from "@material-ui/core";
+
 import withLayout from "../layouts/WithLayoutProvider";
-import { Typography, Box, withStyles } from "@material-ui/core";
+import Typography from "../components/Typography";
 
 const styles = theme => ({
   colorTextPrimary: {
@@ -10,16 +13,8 @@ const styles = theme => ({
 
 const Index = ({ classes }) => {
   return (
-    <Box display="flex" flex="1" alignItems="center" justifyContent="center" >
-      <Box >
-        <Typography
-          variant="h1"
-          classes={{ colorTextPrimary: classes.colorTextPrimary }}
-          color="textPrimary"
-        >
-          Work in progress
-        </Typography>
-      </Box>
+    <Box mt={{ sm: 7 }} pl={{sm: 12}}>
+      <Typography type="h1-primary">Work in progress</Typography>
     </Box>
   );
 };

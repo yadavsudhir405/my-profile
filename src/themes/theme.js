@@ -30,6 +30,13 @@ const theme = createMuiTheme({
       light: colors.background,
       dark: colors.background
     }
+  },
+  overrides: {
+    MuiButton: {
+      root: {
+        textTransform: "initial"
+      }
+    }
   }
 });
 
