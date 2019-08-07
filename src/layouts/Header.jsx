@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 
 import {
   AppBar,
-  List,
+  Box,
+  Hidden,
   Link,
+  List,
   ListItem,
+  Menu,
+  MenuItem,
   Toolbar,
   withStyles
 } from "@material-ui/core";
@@ -37,19 +41,32 @@ const styles = theme => ({
   gutters: {
     paddingLeft: theme.spacing(12),
     paddingRight: theme.spacing(12)
+  },
+  menuRoot: {
+    backgroundColor: theme.background,
+    color: theme.textPrimary,
   }
 });
 
-const Header = ({ classes }) => (
-  <AppBar
-    position="static"
-    classes={{ colorPrimary: classes.appBarBackgroundColor }}
-  >
-    <Toolbar classes={{ gutters: classes.gutters }}>
-      <img src={Images.LOGO} alt="logo" />
+const Header = ({ classes }) => {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [menuIcon, setMenuIcon] = useState(null);
+
+  const handleMenuClose = () => {
+    setMenuOpen(false);
+  };
+  const handleClick = (event) => {
+    setMenuOpen(true);
+    setMenuIcon(event.currentTarget);
+  };
+  const renderNav = () => (
+    <Hidden smDown>
       <List classes={{ root: classes.ulRoot }}>
         {NAV_LIST.map((nav, index) => (
-          <ListItem key={index} classes={{ root: classes.listItemRoot }}>
+          <ListItem
+            key={`nav-${index}`}
+            classes={{ root: classes.listItemRoot }}
+          >
             <Link
               underline="none"
               href="#"
@@ -63,8 +80,38 @@ const Header = ({ classes }) => (
           </ListItem>
         ))}
       </List>
-    </Toolbar>
-  </AppBar>
-);
+    </Hidden>
+  );
+  const renderMobileMenu = () => (
+    <Hidden mdUp>
+      <Box flex="1" display="flex" flexDirection="row-reverse">
+        <img src={Images.MENU} alt="Menu" onClick={handleClick} />
+      </Box>
+      <Menu
+        open={menuOpen}
+        onClose={handleMenuClose}
+        keepMounted
+        anchorEl={menuIcon}
+        classes={{paper: classes.menuRoot}}
+      >
+        {NAV_LIST.map((nav, index) => (
+          <MenuItem key={`menu-${index}`}>{nav.name}</MenuItem>
+        ))}
+      </Menu>
+    </Hidden>
+  );
+  return (
+    <AppBar
+      position="static"
+      classes={{ colorPrimary: classes.appBarBackgroundColor }}
+    >
+      <Toolbar classes={{ gutters: classes.gutters }}>
+        <img src={Images.LOGO} alt="logo" />
+        {renderNav()}
+        {renderMobileMenu()}
+      </Toolbar>
+    </AppBar>
+  );
+};
 
 export default withStyles(styles)(Header);
