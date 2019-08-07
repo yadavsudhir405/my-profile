@@ -2,15 +2,15 @@ import React from "react";
 
 import {
   AppBar,
-  Link,
   List,
+  Link,
   ListItem,
   Toolbar,
   withStyles
 } from "@material-ui/core";
 
 import Images from "../constants/images";
-import Typography from "../components/Typography";
+import NAV_LIST from "./NavList";
 
 const styles = theme => ({
   appBarBackgroundColor: {
@@ -36,7 +36,7 @@ const styles = theme => ({
   },
   gutters: {
     paddingLeft: theme.spacing(12),
-    paddingRight: theme.spacing(12),
+    paddingRight: theme.spacing(12)
   }
 });
 
@@ -48,54 +48,20 @@ const Header = ({ classes }) => (
     <Toolbar classes={{ gutters: classes.gutters }}>
       <img src={Images.LOGO} alt="logo" />
       <List classes={{ root: classes.ulRoot }}>
-        <ListItem classes={{ root: classes.listItemRoot }}>
-          <Link
-            underline="none"
-            href="#"
-            classes={{
-              root: classes.linkRoot,
-              underlineNone: classes.underlineNone
-            }}
-          >
-            About
-          </Link>
-        </ListItem>
-        <ListItem classes={{ root: classes.listItemRoot }}>
-          <Link
-            underline="none"
-            href="#"
-            classes={{
-              root: classes.linkRoot,
-              underlineNone: classes.underlineNone
-            }}
-          >
-            Experience
-          </Link>
-        </ListItem>
-        <ListItem classes={{ root: classes.listItemRoot }}>
-          <Link
-            underline="none"
-            href="#"
-            classes={{
-              root: classes.linkRoot,
-              underlineNone: classes.underlineNone
-            }}
-          >
-            Work
-          </Link>
-        </ListItem>
-        <ListItem classes={{ root: classes.listItemRoot }}>
-          <Link
-            underline="none"
-            href="#"
-            classes={{
-              root: classes.linkRoot,
-              underlineNone: classes.underlineNone
-            }}
-          >
-            Contact
-          </Link>
-        </ListItem>
+        {NAV_LIST.map((nav, index) => (
+          <ListItem key={index} classes={{ root: classes.listItemRoot }}>
+            <Link
+              underline="none"
+              href="#"
+              classes={{
+                root: classes.linkRoot,
+                underlineNone: classes.underlineNone
+              }}
+            >
+              {nav.name}
+            </Link>
+          </ListItem>
+        ))}
       </List>
     </Toolbar>
   </AppBar>
