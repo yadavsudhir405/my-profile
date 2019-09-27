@@ -1,33 +1,33 @@
-import { withStyles, Box } from "@material-ui/core";
+import { Box, useTheme } from "@material-ui/core";
 
 import Header from "./Header";
-import { compose } from "redux";
-
-const styles = theme => ({
-  container: {
+import { makeStyles } from "@material-ui/styles";
+const useStyles = makeStyles({
+  container: ({ theme }) => ({
     margin: 0,
     padding: 0,
     background: theme.background,
     width: "100%",
     minHeight: "100vh"
-  },
+  }),
   main: {
     flex: 1,
-    display:"flex",
-    flexDirection: "column",
+    display: "flex",
+    flexDirection: "column"
   }
 });
 
-const withLayout = WrappedComponent => ({ classes, ...props }) => (
-  <Box display="flex" flexDirection="column" className={classes.container}>
-    <Header />
-    <main className={classes.main}>
-      <WrappedComponent {...props} />
-    </main>
-  </Box>
-);
+const withLayout = WrappedComponent => props => {
+  const classes = useStyles({ theme: useTheme() });
 
-export default compose(
-  withStyles(styles),
-  withLayout
-);
+  return (
+    <Box display="flex" flexDirection="column" className={classes.container}>
+      <Header />
+      <main className={classes.main}>
+        <WrappedComponent {...props} />
+      </main>
+    </Box>
+  );
+};
+
+export default withLayout;
