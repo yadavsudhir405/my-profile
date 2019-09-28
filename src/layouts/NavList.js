@@ -1,15 +1,19 @@
 const NAV_LIST = [
   {
-    name: "About"
+    name: "About",
+    url: "about"
   },
   {
-    name: "Experience"
+    name: "Experience",
+    url: "experience"
   },
   {
-    name: "Work"
+    name: "Work",
+    url: "work",
   },
   {
-    name: "Contact"
+    name: "Contact",
+    url: "contact"
   }
 ];
 

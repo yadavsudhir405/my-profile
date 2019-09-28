@@ -1,17 +1,16 @@
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useState } from "react";
 
 import {
   AppBar,
   Box,
+  Button,
   Hidden,
   Link,
   List,
   ListItem,
   Toolbar,
-  withStyles,
-  Button,
-  MenuItem,
-  ListItemText
+  withStyles
 } from "@material-ui/core";
 
 import Images from "../constants/images";
@@ -25,11 +24,14 @@ const styles = theme => ({
   ulRoot: {
     flex: 1,
     display: "flex",
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column"
+    },
     justifyContent: "flex-end"
   },
   listItemRoot: {
     width: "auto",
-    justifyContent: "flex-start",
+    justifyContent: "center",
     alignItems: "center"
   },
   linkRoot: {
@@ -66,49 +68,37 @@ const Header = ({ classes }) => {
   const closePopup = () => {
     setPopDisplay("none");
   };
-  const renderNav = () => (
-    <Hidden smDown>
-      <List classes={{ root: classes.ulRoot }}>
-        {NAV_LIST.map((nav, index) => (
-          <ListItem
-            key={`nav-${index}`}
-            classes={{ root: classes.listItemRoot }}
+  const renderLinks = () => (
+    <List classes={{ root: classes.ulRoot }}>
+      {NAV_LIST.map((nav, index) => (
+        <ListItem key={`nav-${index}`} classes={{ root: classes.listItemRoot }}>
+          <Link
+            underline="none"
+            href={`#${nav.uri}`}
+            classes={{
+              root: classes.linkRoot,
+              underlineNone: classes.underlineNone
+            }}
           >
-            <Link
-              underline="none"
-              href="#"
-              classes={{
-                root: classes.linkRoot,
-                underlineNone: classes.underlineNone
-              }}
-            >
-              {nav.name}
-            </Link>
-          </ListItem>
-        ))}
-      </List>
-    </Hidden>
+            {nav.name}
+          </Link>
+        </ListItem>
+      ))}
+    </List>
   );
+  const renderNav = () => <Hidden smDown>{renderLinks()}</Hidden>;
   const renderMobileMenu = () => (
     <Hidden mdUp>
       <Box flex="1" display="flex" flexDirection="row-reverse">
         <img src={Images.MENU} alt="Menu" onClick={handleClick} />
       </Box>
       <Box display={popDisplay} classes={{ root: classes.menuPopup }}>
-        <Box display='flex' flexDirection='row-reverse'>
-          <Button onClick={closePopup}><Typography> Close</Typography></Button>
+        <Box display="flex" flexDirection="row-reverse">
+          <Button onClick={closePopup}>
+            <Typography> Close</Typography>
+          </Button>
         </Box>
-        <List alignItems="center">
-          {NAV_LIST.map((nav, index) => (
-            <ListItem
-              classes={{ root: classes.links }}
-              button
-              key={`menu-${index}`}
-            >
-              <ListItemText>{nav.name}</ListItemText>
-            </ListItem>
-          ))}
-        </List>
+        {renderLinks()}
       </Box>
     </Hidden>
   );
