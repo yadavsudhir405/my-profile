@@ -74,7 +74,7 @@ const Header = ({ classes }) => {
         <ListItem key={`nav-${index}`} classes={{ root: classes.listItemRoot }}>
           <Link
             underline="none"
-            href={`#${nav.uri}`}
+            href={`#${nav.url}`}
             classes={{
               root: classes.linkRoot,
               underlineNone: classes.underlineNone
