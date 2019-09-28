@@ -7,14 +7,16 @@ import {
   Link,
   List,
   ListItem,
-  Menu,
-  MenuItem,
   Toolbar,
-  withStyles
+  withStyles,
+  Button,
+  MenuItem,
+  ListItemText
 } from "@material-ui/core";
 
 import Images from "../constants/images";
 import NAV_LIST from "./NavList";
+import Typography from "../components/Typography";
 
 const styles = theme => ({
   appBarBackgroundColor: {
@@ -42,22 +44,27 @@ const styles = theme => ({
     paddingLeft: theme.spacing(12),
     paddingRight: theme.spacing(12)
   },
-  menuRoot: {
+  menuPopup: {
     backgroundColor: theme.background,
     color: theme.textPrimary,
+    position: "fixed",
+    left: "0",
+    right: "0",
+    top: "0",
+    bottom: "0"
+  },
+  links: {
+    textAlign: "center"
   }
 });
 
 const Header = ({ classes }) => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [menuIcon, setMenuIcon] = useState(null);
-
-  const handleMenuClose = () => {
-    setMenuOpen(false);
+  const [popDisplay, setPopDisplay] = useState("none");
+  const handleClick = event => {
+    setPopDisplay("Block");
   };
-  const handleClick = (event) => {
-    setMenuOpen(true);
-    setMenuIcon(event.currentTarget);
+  const closePopup = () => {
+    setPopDisplay("none");
   };
   const renderNav = () => (
     <Hidden smDown>
@@ -87,17 +94,22 @@ const Header = ({ classes }) => {
       <Box flex="1" display="flex" flexDirection="row-reverse">
         <img src={Images.MENU} alt="Menu" onClick={handleClick} />
       </Box>
-      <Menu
-        open={menuOpen}
-        onClose={handleMenuClose}
-        keepMounted
-        anchorEl={menuIcon}
-        classes={{paper: classes.menuRoot}}
-      >
-        {NAV_LIST.map((nav, index) => (
-          <MenuItem key={`menu-${index}`}>{nav.name}</MenuItem>
-        ))}
-      </Menu>
+      <Box display={popDisplay} classes={{ root: classes.menuPopup }}>
+        <Box display='flex' flexDirection='row-reverse'>
+          <Button onClick={closePopup}><Typography> Close</Typography></Button>
+        </Box>
+        <List alignItems="center">
+          {NAV_LIST.map((nav, index) => (
+            <ListItem
+              classes={{ root: classes.links }}
+              button
+              key={`menu-${index}`}
+            >
+              <ListItemText>{nav.name}</ListItemText>
+            </ListItem>
+          ))}
+        </List>
+      </Box>
     </Hidden>
   );
   return (
