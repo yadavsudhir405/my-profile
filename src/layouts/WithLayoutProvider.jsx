@@ -1,7 +1,9 @@
-import { Box, useTheme } from "@material-ui/core";
+import { Box, Hidden, useTheme } from "@material-ui/core";
 
 import Header from "./Header";
 import { makeStyles } from "@material-ui/styles";
+import Left from "./Left";
+import Right from "./Right";
 const useStyles = makeStyles({
   container: ({ theme }) => ({
     margin: 0,
@@ -21,12 +23,20 @@ const withLayout = WrappedComponent => props => {
   const classes = useStyles({ theme: useTheme() });
 
   return (
-    <Box display="flex" flexDirection="column" className={classes.container}>
+    <>
       <Header />
-      <main className={classes.main}>
-        <WrappedComponent {...props} />
-      </main>
-    </Box>
+      <Box display="flex" className={classes.container}>
+        <Hidden smDown>
+          <Left />
+        </Hidden>
+        <main className={classes.main}>
+          <WrappedComponent {...props} />
+        </main>
+        <Hidden smDown>
+          <Right />
+        </Hidden>
+      </Box>
+    </>
   );
 };
 
