@@ -5,6 +5,7 @@ metadata:
   labels:
     app: my-profile-${BUILD_ENV}
 spec:
+  type: NodePort
   ports:
     - targetPort: 4000
       nodePort: ${PORT_NUMBER}
