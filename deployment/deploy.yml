@@ -7,15 +7,15 @@ metadata:
 spec:
   replicas: 2
   minReadySeconds: 10
+  selector:
+    matchLabels:
+      app: my-profile-${BUILD_ENV}
   strategy:
     type: RollingUpdate
     rollingUpdate:
       maxUnavailable: 1
       maxSurge: 1
   template:
-    selector:
-      matchLabels:
-        app: my-profile-${BUILD_ENV}
     metadata:
       labels:
         app: my-profile-${BUILD_ENV}
