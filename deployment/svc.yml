@@ -5,11 +5,9 @@ metadata:
   labels:
     app: my-profile-${BUILD_ENV}
 spec:
-  type: NodePort
   ports:
     - targetPort: 4000
-      nodePort: ${PORT_NUMBER}
-      port: 30019
+      port: 4000
       protocol: TCP
   selector:
     app: my-profile-${BUILD_ENV}
