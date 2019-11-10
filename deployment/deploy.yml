@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: my-profile-${BUILD_ENV}
+  labels:
+    app: my-profile-${BUILD_ENV}
 spec:
   replicas: 2
   minReadySeconds: 10
@@ -11,6 +13,9 @@ spec:
       maxUnavailable: 1
       maxSurge: 1
   template:
+    selector:
+      matchLabels:
+        app: my-profile-${BUILD_ENV}
     metadata:
       labels:
         app: my-profile-${BUILD_ENV}
