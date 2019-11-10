@@ -9,6 +9,7 @@ spec:
   ports:
     - targetPort: 4000
       nodePort: ${PORT_NUMBER}
+      port: ${PORT_NUMBER}
       protocol: TCP
   selector:
     app: my-profile-${BUILD_ENV}
