@@ -7,7 +7,8 @@ metadata:
 spec:
   ports:
     - targetPort: 4000
-      port: ${PORT_NUMBER}
+      nodePort: ${PORT_NUMBER}
+      port: 4000
       protocol: TCP
   selector:
     app: my-profile-${BUILD_ENV}
