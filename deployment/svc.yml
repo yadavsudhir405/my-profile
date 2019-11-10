@@ -9,7 +9,7 @@ spec:
   ports:
     - targetPort: 4000
       nodePort: ${PORT_NUMBER}
-      port: ${PORT_NUMBER}
+      port: 30019
       protocol: TCP
   selector:
     app: my-profile-${BUILD_ENV}
