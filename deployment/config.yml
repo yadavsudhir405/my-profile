@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: my-profil-configs-${BUILD_ENV}
 data:
-  BACKEND_SERVER: https://rest-api-svc-dev.{BUILD_END}:30003
+  BACKEND_SERVER: http://rest-api-svc-dev.{BUILD_END}:30003
