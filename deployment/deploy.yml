@@ -23,5 +23,8 @@ spec:
       containers:
         - name: my-profile
           image: yadavsudhir405/my-profile:${BUILD_NUMBER}
+          envFrom:
+            - configMapRef:
+                name: my-profil-configs-${BUILD_ENV}
           ports:
             - containerPort: 4000
