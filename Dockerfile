@@ -1,4 +1,4 @@
-FROM node:10.16.0-alpine as build
+FROM node:10.16.0 as build
 MAINTAINER Sudhir Yadav "yadavsudhir405@gmail.co"
 ENV REFRESHED_AT 05-JUN-2019
 
