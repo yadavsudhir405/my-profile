@@ -25,7 +25,7 @@ deploy_prod:
   script:
     - apk add gettext
     -  kubectl config current-context
-    -  /bin/sh deploy.sh ${CI_BUILD_REF_NAME}_${CI_BUILD_REF} prod 30002
+    -  /bin/sh deploy.sh ${CI_BUILD_REF_NAME}_${CI_BUILD_REF} dev 30002
   environment:
     name: prod
   only:
