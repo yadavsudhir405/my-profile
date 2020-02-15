@@ -7,9 +7,10 @@ const initialState = {
   contacts: []
 };
 
-export const updateProfile = produce((draft, action) => {
-  const { profile } = action.payload;
-  draft.profile = profile;
+export const updateProfile = produce((draft, actions) => {
+  const { profile } = actions.payload;
+  draft.id = profile.id;
+  draft.contacts = profile.contacts;
 });
 
 const reducer = reducerCreator(initialState, {
