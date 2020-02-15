@@ -1,8 +1,8 @@
 import React from "react";
 
 import withLayout from "../layouts/WithLayoutProvider";
-import Profile from "../modules/profile/profile";
+import ProfileContainer from "../modules/profile/profile-container";
 
-const Index = () => <Profile />;
+const Index = () => <ProfileContainer />
 
 export default withLayout(Index);
