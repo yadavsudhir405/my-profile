@@ -3,6 +3,7 @@ import NextApp, { Container } from "next/app";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 import withTheme from "../themes/withThemeProvider";
+import withRedux from "../redux/withReduxProvider";
 
 class App extends NextApp {
   render() {
@@ -16,4 +17,4 @@ class App extends NextApp {
   }
 }
 
-export default withTheme(App);
+export default withTheme(withRedux(App));
