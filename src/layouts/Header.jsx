@@ -9,7 +9,8 @@ import {
   Link,
   List,
   ListItem,
-  Toolbar,
+  Slide,
+  Toolbar, useScrollTrigger,
   withStyles
 } from "@material-ui/core";
 
@@ -102,17 +103,21 @@ const Header = ({ classes }) => {
       </Box>
     </Hidden>
   );
+
+  const trigger = useScrollTrigger();
   return (
-    <AppBar
-      position="static"
-      classes={{ colorPrimary: classes.appBarBackgroundColor }}
-    >
-      <Toolbar classes={{ gutters: classes.gutters }}>
-        <img src={Images.LOGO} alt="logo" />
-        {renderNav()}
-        {renderMobileMenu()}
-      </Toolbar>
-    </AppBar>
+    <Slide direction="down" in={!trigger}>
+      <AppBar
+        position="fixed"
+        classes={{ colorPrimary: classes.appBarBackgroundColor }}
+      >
+        <Toolbar classes={{ gutters: classes.gutters }}>
+          <img src={Images.LOGO} alt="logo" />
+          {renderNav()}
+          {renderMobileMenu()}
+        </Toolbar>
+      </AppBar>
+    </Slide>
   );
 };
 

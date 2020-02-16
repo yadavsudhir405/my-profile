@@ -2,9 +2,14 @@ import React from "react";
 
 import { Box, withStyles } from "@material-ui/core";
 
-const Styles = theme => ({
+const Styles = (theme) => ({
   root: {
-    width: "10%",
+    width: theme.spacing(10),
+    position: "fixed",
+    right: theme.spacing(10),
+    left: "auto",
+    bottom: "0px",
+    height: "90%"
   }
 });
 

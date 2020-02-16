@@ -8,12 +8,13 @@ import Work from "../work/Work";
 import Contact from "../contact/Contact";
 
 const Profile = ({ profile, getProfile }) => {
+  const { name } = profile;
   useEffect(() => {
     getProfile();
   }, [getProfile]);
   return (
     <Box mt={{ sm: 7 }} pl={{ sm: 12 }}>
-      <Introduction />
+      <Introduction name={name} />
       <About />
       <Experience />
       <Work />

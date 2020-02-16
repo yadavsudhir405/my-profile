@@ -4,7 +4,12 @@ import { Box, withStyles } from "@material-ui/core";
 
 const Styles = theme => ({
   root: {
-    width: "10%"
+    width: "40px",
+    position: "fixed",
+    left: "40px",
+    right: "auto",
+    bottom: "0px",
+    height: "90%"
   }
 });
 

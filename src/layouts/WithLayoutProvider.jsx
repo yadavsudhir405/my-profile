@@ -29,12 +29,12 @@ const withLayout = WrappedComponent => props => {
         <Hidden smDown>
           <Left />
         </Hidden>
-        <main className={classes.main}>
-          <WrappedComponent {...props} />
-        </main>
         <Hidden smDown>
           <Right />
         </Hidden>
+        <main className={classes.main}>
+          <WrappedComponent {...props} />
+        </main>
       </Box>
     </>
   );
