@@ -12,11 +12,16 @@ const useStyles = makeStyles({
     width: "100%",
     minHeight: "100vh"
   }),
-  main: {
+  main: ({ theme }) => ({
     flex: 1,
     display: "flex",
-    flexDirection: "column"
-  }
+    flexDirection: "column",
+    maxWidth: theme.spacing(400),
+    paddingLeft: theme.spacing(40),
+    paddingRight: theme.spacing(40),
+    minHeight: "100vh",
+    margin: "0 auto"
+  })
 });
 
 const withLayout = WrappedComponent => props => {
