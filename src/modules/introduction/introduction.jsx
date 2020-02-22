@@ -3,21 +3,20 @@ import React from "react";
 import { Box, Button } from "@material-ui/core";
 import Typography from "../../components/Typography";
 
-const Introduction = ({ name }) => (
+const Introduction = ({ name, quickIntroduction }) => (
   <Box component="section" pt={{sm: 15}}>
     <Box>
       <Typography> Hi, my name is </Typography>
     </Box>
     <Box>
-      <Typography>{name}.</Typography>
+      <Typography>{name}</Typography>
     </Box>
     <Box>
       <Typography> I build things for the web. </Typography>
     </Box>
     <Box>
       <Typography>
-        I'm a software engineer based in Bangalore-India, BE specializing in
-        building high quality websites and applications.
+        {quickIntroduction}
       </Typography>
     </Box>
 

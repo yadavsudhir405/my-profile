@@ -3,14 +3,38 @@ import { UPDATE_PROFILE } from "./action";
 import produce from "immer";
 
 const initialState = {
-  id: "",
+  id: null,
+  name: null,
+  quickIntroduction: null,
+  about: {
+    heading: null,
+    mainIntroduction: null,
+    extendedIntroduction: null,
+    techStacks: []
+  },
+  experience: {
+    heading: "",
+    employments: []
+  },
+  work: {},
   contacts: []
 };
 
 export const updateProfile = produce((draft, actions) => {
-  const { profile } = actions.payload;
-  draft.id = profile.id;
-  draft.contacts = profile.contacts;
+  const {
+    id,
+    name,
+    quickIntroduction,
+    contacts,
+    about,
+    experience
+  } = actions.payload.profile;
+  draft.id = id;
+  draft.name = name;
+  draft.quickIntroduction = quickIntroduction;
+  draft.contacts = contacts;
+  draft.about = about;
+  draft.experience = experience;
 });
 
 const reducer = reducerCreator(initialState, {
