@@ -19,7 +19,9 @@ const useStyles = makeStyles({
     minHeight: "100vh",
     margin: "0 auto",
     maxWidth: theme.spacing(400),
-    [theme.breakpoints.between('lg', 'xl')]: {
+    paddingLeft: theme.spacing(6),
+    paddingRight: theme.spacing(6),
+    [theme.breakpoints.up('md')]: {
       paddingLeft: theme.spacing(40),
       paddingRight: theme.spacing(40),
     },

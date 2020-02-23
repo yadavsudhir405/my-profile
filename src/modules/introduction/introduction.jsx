@@ -4,7 +4,7 @@ import { Box, Button } from "@material-ui/core";
 import Typography from "../../components/Typography";
 
 const Introduction = ({ name, quickIntroduction }) => (
-  <Box component="section">
+  <Box component="section" pt={{xs: 25, md:38}}>
     <Box>
       <Typography> Hi, my name is </Typography>
     </Box>
