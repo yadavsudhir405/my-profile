@@ -9,7 +9,11 @@ const getStyles = props => {
   if (typeof(type) ==='string') {
     return { ...theme.typography[type]};
   }
-  return { ...theme.typography['paragraph']}
+
+  if (color !== undefined) {
+    return { ...theme.typography['paragraph-primary'], color};
+  }
+  return { ...theme.typography['paragraph-primary']}
 };
 
 const useStyles = makeStyles({

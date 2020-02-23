@@ -15,7 +15,7 @@ const styles = theme => ({
 });
 
 const Profile = ({ classes, profile, getProfile }) => {
-  const { name, quickIntroduction } = profile;
+  const { name, quickIntroduction, about } = profile;
   useEffect(() => {
     getProfile();
   }, [getProfile]);
@@ -25,7 +25,7 @@ const Profile = ({ classes, profile, getProfile }) => {
   return (
     <Box mt={{ sm: 15 }} classes={{ root: classes.container }}>
       <Introduction name={name} quickIntroduction={quickIntroduction} />
-      <About />
+      <About about={about}/>
       <Experience />
       <Work />
       <Contact />
