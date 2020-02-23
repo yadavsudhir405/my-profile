@@ -2,20 +2,13 @@ import { createMuiTheme } from "@material-ui/core/styles";
 
 import colors from "./colors";
 import { typography } from "./typography";
+import breakpoints from "./breakpoints";
 
 const THEME_UNIT_SPACING = 4;
 
 const theme = createMuiTheme({
   ...colors,
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 600,
-      md: 960,
-      lg: 1280,
-      xl: 1920
-    }
-  },
+  breakpoints,
   typography: { ...typography },
   spacing: factor => `${THEME_UNIT_SPACING * factor}px`,
   shadows: ["none", "0px -2px 6px rgba(0, 0, 0, 0.05)"],

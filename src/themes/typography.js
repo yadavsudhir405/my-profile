@@ -1,4 +1,5 @@
 import colors from "./colors";
+import breakpoints from "./breakpoints";
 
 export const typography = {
   fontFamily:
@@ -13,60 +14,83 @@ export const typography = {
     lightBold: 600,
     bold: 700
   },
-  "h1-primary":{
+  "h1-primary": {
     fontStyle: "normal",
     fontWeight: 600,
-    fontSize: "80px",
-    lineHeight: "1.1",
-    letterSpacing: "-1.5px",
+    fontSize: "50px",
+    lineHeight: "1",
     color: colors.textPrimary,
-
+    letterSpacing: "normal",
+    [breakpoints.up("sm")]: {
+      fontSize: "60px",
+      lineHeight: "1.2"
+    },
+    [breakpoints.up("md")]: {
+      fontSize: "80px",
+      lineHeight: "1.3"
+    }
   },
   "h1-secondary": {
     fontStyle: "normal",
     fontWeight: 600,
-    fontSize: "80px",
-    lineHeight: "1.1",
-    letterSpacing: "-1.5px",
+    fontSize: "50px",
+    lineHeight: "1",
+    letterSpacing: "normal",
     color: colors.textSecondary,
+    [breakpoints.up("sm")]: {
+      fontSize: "60px",
+      lineHeight: "1.2"
+    },
+    [breakpoints.up("md")]: {
+      fontSize: "80px",
+      lineHeight: "1.3"
+    }
   },
-  "h3-primary":{
+  "h3-primary": {
     fontStyle: "normal",
     fontWeight: 600,
     fontSize: "32px",
     lineHeight: "1.1",
-    letterSpacing: "-1.5px",
+    letterSpacing: "normal"
   },
-  "h4-primary":{
+  "h4-primary": {
     fontStyle: "normal",
     fontWeight: 600,
     fontSize: "25px",
     lineHeight: "1.1",
-    letterSpacing: "-1.5px",
-    color: colors.textPrimary,
+    letterSpacing: "normal",
+    color: colors.textPrimary
   },
-  "h4-secondary":{
+  "h4-secondary": {
     fontStyle: "normal",
     fontWeight: 600,
     fontSize: "25px",
     lineHeight: "1.1",
-    letterSpacing: "-1.5px",
-    color: colors.textSecondary,
+    letterSpacing: "normal",
+    color: colors.textSecondary
   },
-  "h5-primary":{
+  "h5-primary": {
     fontStyle: "normal",
-    fontWeight: 600,
-    fontSize: "16px",
-    lineHeight: "1.1",
-    letterSpacing: "-1.5px",
-    color: colors.textPrimary,
-  },
-  "paragraph":{
-    fontStyle: "normal",
-    fontWeight: 600,
+    fontWeight: 400,
     fontSize: "20px",
     lineHeight: "1.1",
-    letterSpacing: "-1.5px",
-    color: colors.textSecondary,
+    letterSpacing: "normal",
+    color: colors.textPrimary
+  },
+  "paragraph-primary": {
+    fontStyle: "normal",
+    fontWeight: 350,
+    fontSize: "18px",
+    lineHeight: "1.4",
+    letterSpacing: "0.2",
+    color: colors.textPrimary
+  },
+  "paragraph-secondary": {
+    fontStyle: "normal",
+    fontWeight: 350,
+    fontSize: "18px",
+    lineHeight: "1.4",
+    letterSpacing: "0.2",
+    color: colors.textSecondary
   }
 };
