@@ -1,20 +1,26 @@
 import React, { useEffect } from "react";
 
-import { Box } from "@material-ui/core";
+import { Box, withStyles } from "@material-ui/core";
 import Introduction from "../introduction/introduction";
 import About from "../about/About";
 import Experience from "../experience/Experience";
 import Work from "../work/Work";
 import Contact from "../contact/Contact";
 
-const Profile = ({ profile, getProfile }) => {
+const styles = theme => ({
+  container: {
+    maxWidth: theme.spacing(250),
+    margin: "0 auto"
+  }
+});
+
+const Profile = ({ classes, profile, getProfile }) => {
   const { name, quickIntroduction } = profile;
-  debugger;
   useEffect(() => {
     getProfile();
   }, [getProfile]);
   return (
-    <Box mt={{ sm: 7 }} pl={{ sm: 12 }}>
+    <Box mt={{ sm: 15 }} classes={{ root: classes.container }}>
       <Introduction name={name} quickIntroduction={quickIntroduction} />
       <About />
       <Experience />
@@ -24,4 +30,4 @@ const Profile = ({ profile, getProfile }) => {
   );
 };
 
-export default Profile;
+export default withStyles(styles)(Profile);

@@ -16,12 +16,18 @@ const useStyles = makeStyles({
     flex: 1,
     display: "flex",
     flexDirection: "column",
-    maxWidth: theme.spacing(400),
-    paddingLeft: theme.spacing(40),
-    paddingRight: theme.spacing(40),
     minHeight: "100vh",
-    margin: "0 auto"
-  })
+    margin: "0 auto",
+    maxWidth: theme.spacing(400),
+    [theme.breakpoints.between('lg', 'xl')]: {
+      paddingLeft: theme.spacing(40),
+      paddingRight: theme.spacing(40),
+    },
+
+  }),
+  content: {
+    width: "100%",
+  },
 });
 
 const withLayout = WrappedComponent => props => {
@@ -37,9 +43,12 @@ const withLayout = WrappedComponent => props => {
         <Hidden smDown>
           <Right />
         </Hidden>
-        <main className={classes.main}>
-          <WrappedComponent {...props} />
-        </main>
+        <Box className={classes.content}>
+          <main className={classes.main}>
+            <WrappedComponent {...props} />
+          </main>
+          <Box className="footer"></Box>
+        </Box>
       </Box>
     </>
   );

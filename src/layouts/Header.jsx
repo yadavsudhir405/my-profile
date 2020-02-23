@@ -45,7 +45,12 @@ const styles = theme => ({
   },
   gutters: {
     paddingLeft: theme.spacing(12),
-    paddingRight: theme.spacing(12)
+    paddingRight: theme.spacing(12),
+    minHeight: theme.spacing(25),
+    [theme.breakpoints.down('sm')]: {
+      paddingLeft: theme.spacing(6),
+      paddingRight: theme.spacing(6),
+    }
   },
   menuPopup: {
     backgroundColor: theme.background,

@@ -10,8 +10,10 @@ const theme = createMuiTheme({
   breakpoints: {
     values: {
       xs: 0,
-      sm: 481,
-      md: 769
+      sm: 600,
+      md: 960,
+      lg: 1280,
+      xl: 1920
     }
   },
   typography: { ...typography },
