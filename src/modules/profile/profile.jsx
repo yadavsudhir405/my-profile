@@ -19,6 +19,9 @@ const Profile = ({ classes, profile, getProfile }) => {
   useEffect(() => {
     getProfile();
   }, [getProfile]);
+  if (!profile.name) {
+    return <></>;
+  }
   return (
     <Box mt={{ sm: 15 }} classes={{ root: classes.container }}>
       <Introduction name={name} quickIntroduction={quickIntroduction} />
