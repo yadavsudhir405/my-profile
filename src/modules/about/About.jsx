@@ -1,13 +1,22 @@
 import React from "react";
 
-import { Box } from "@material-ui/core";
+import { Box, withStyles } from "@material-ui/core";
 
 import Typography from "../../components/Typography";
 
-const About = () => (
-  <Box id="about">
+const styles = () => ({
+  root: {
+    minHeight: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "Center"
+  }
+});
+
+const About = ({classes}) => (
+  <Box id="about" classes={{root: classes.root}}>
     <Typography> About Section</Typography>
   </Box>
 );
 
-export default About;
+export default withStyles(styles)(About);

@@ -1,13 +1,22 @@
 import React from "react";
 
-import { Box } from "@material-ui/core";
+import { Box, withStyles } from "@material-ui/core";
 
 import Typography from "../../components/Typography";
 
-const Experience = () => (
-  <Box id="experience">
+const styles = () => ({
+  root: {
+    minHeight: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "Center"
+  }
+});
+
+const Experience = ({ classes }) => (
+  <Box id="experience" classes={{ root: classes.root }}>
     <Typography> Experience Section</Typography>
   </Box>
 );
 
-export default Experience;
+export default withStyles(styles)(Experience);

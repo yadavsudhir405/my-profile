@@ -1,10 +1,16 @@
 import React from "react";
 
-import { Box, Button } from "@material-ui/core";
+import { Box, Button, withStyles } from "@material-ui/core";
 import Typography from "../../components/Typography";
 
-const Introduction = ({ name, quickIntroduction }) => (
-  <Box component="section" pt={{xs: 25, md:38}}>
+const styles = () => ({
+  root: {
+    minHeight: "100vh"
+  }
+});
+
+const Introduction = ({ classes, name, quickIntroduction }) => (
+  <Box component="section" classes={{root: classes.root}} pt={{ xs: 25, md: 38 }}>
     <Box>
       <Typography> Hi, my name is </Typography>
     </Box>
@@ -15,9 +21,7 @@ const Introduction = ({ name, quickIntroduction }) => (
       <Typography> I build things for the web. </Typography>
     </Box>
     <Box>
-      <Typography>
-        {quickIntroduction}
-      </Typography>
+      <Typography>{quickIntroduction}</Typography>
     </Box>
 
     <Box>
@@ -29,4 +33,4 @@ const Introduction = ({ name, quickIntroduction }) => (
   </Box>
 );
 
-export default Introduction;
+export default withStyles(styles)(Introduction);

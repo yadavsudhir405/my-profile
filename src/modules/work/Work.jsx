@@ -1,13 +1,21 @@
 import React from "react";
 
-import { Box } from "@material-ui/core";
+import { Box, withStyles } from "@material-ui/core";
 
 import Typography from "../../components/Typography";
-
-const Work = () => (
-  <Box id="work">
+const styles = () => ({
+  root: {
+    minHeight: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "Center"
+  }
+});
+const Work = ({classes}) => (
+  <Box id="work" classes={{root: classes.root}}>
     <Typography> Work Section</Typography>
+    <Typography> Coming Soon</Typography>
   </Box>
 );
 
-export default Work;
+export default withStyles(styles)(Work);

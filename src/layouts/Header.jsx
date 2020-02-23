@@ -117,7 +117,9 @@ const Header = ({ classes }) => {
         classes={{ colorPrimary: classes.appBarBackgroundColor }}
       >
         <Toolbar classes={{ gutters: classes.gutters }}>
-          <img src={Images.LOGO} alt="logo" />
+          <Link href="/">
+            <img src={Images.LOGO} alt="logo" />
+          </Link>
           {renderNav()}
           {renderMobileMenu()}
         </Toolbar>
