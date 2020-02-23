@@ -1,14 +1,18 @@
 import React from "react";
 
-import { Box, Button, withStyles } from "@material-ui/core";
+import { Box, withStyles } from "@material-ui/core";
 import Typography from "../../components/Typography";
+import StyledButton from "../../components/Button";
+import colors from "../../themes/colors";
 
-const styles = () => ({
+const styles = (theme) => ({
   root: {
     minHeight: "100vh"
   },
   quickIntro: {
-    width: "50%"
+    [theme.breakpoints.up("sm")]: {
+      width: "50%"
+    }
   }
 });
 
@@ -19,7 +23,7 @@ const Introduction = ({ classes, name, quickIntroduction }) => (
     pt={{ xs: 25, md: 38 }}
   >
     <Box mb={5}>
-      <Typography type="h5-primary"> Hi, my name is </Typography>
+      <Typography type="h5-primary" color={colors.primary}> Hi, my name is </Typography>
     </Box>
     <Box>
       <Typography type="h1-primary">{name}.</Typography>
@@ -31,10 +35,10 @@ const Introduction = ({ classes, name, quickIntroduction }) => (
       <Typography type="paragraph-secondary">{quickIntroduction}</Typography>
     </Box>
     <Box mt={20} mb={3}>
-      <Button variant="contained" color="primary">
+      <StyledButton variant="outlined" color="primary">
         {" "}
-        Get In Touch
-      </Button>
+        <Typography type="button-text" color={colors.primary}>Get In Touch</Typography>
+      </StyledButton>
     </Box>
   </Box>
 );

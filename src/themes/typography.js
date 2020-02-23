@@ -92,5 +92,13 @@ export const typography = {
     lineHeight: "1.4",
     letterSpacing: "0.2",
     color: colors.textSecondary
+  },
+  "button-text": {
+    fontStyle: "normal",
+    fontWeight: 500,
+    fontSize: "14px",
+    lineHeight: "1.4",
+    letterSpacing: "1",
+    color: colors.textSecondary
   }
 };
