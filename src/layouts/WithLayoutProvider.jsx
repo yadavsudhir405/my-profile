@@ -21,15 +21,18 @@ const useStyles = makeStyles({
     maxWidth: theme.spacing(400),
     paddingLeft: theme.spacing(6),
     paddingRight: theme.spacing(6),
-    [theme.breakpoints.up('md')]: {
-      paddingLeft: theme.spacing(40),
-      paddingRight: theme.spacing(40),
+    [theme.breakpoints.up("sm")]: {
+      paddingLeft: theme.spacing(25),
+      paddingRight: theme.spacing(25)
     },
-
+    [theme.breakpoints.up("md")]: {
+      paddingLeft: theme.spacing(40),
+      paddingRight: theme.spacing(40)
+    }
   }),
   content: {
-    width: "100%",
-  },
+    width: "100%"
+  }
 });
 
 const withLayout = WrappedComponent => props => {
