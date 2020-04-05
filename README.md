@@ -1,1 +1,1 @@
-This is react app based on next js.
+This is react app based on next js using material-ui.
