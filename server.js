@@ -6,7 +6,6 @@ const proxy = require("http-proxy-middleware");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 
-
 const port = parseInt(process.env.PORT, 10) || 4000;
 const dev = process.env.NODE_ENV === "development";
 const app = next({ dev, dir: "./src" });
