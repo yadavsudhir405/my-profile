@@ -4,4 +4,4 @@ metadata:
   name: my-profil-configs-${BUILD_ENV}
   namespace: ${BUILD_ENV}
 data:
-  BACKEND_SERVER: http://rest-api-svc-${BUILD_ENV}.${BUILD_ENV}:30003
+  BACKEND_SERVER: http://rest-api-svc-${BUILD_ENV}:30003
