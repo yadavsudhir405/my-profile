@@ -23,6 +23,7 @@ const removeTrailingSlashes = (req, res, expressNext) => {
   }
 };
 
+
 const serviceProxies = [
   {
     identifier: "/rest",
