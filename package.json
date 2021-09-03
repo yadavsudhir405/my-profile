@@ -22,7 +22,7 @@
     "dotenv": "^8.0.0",
     "express": "^4.14.0",
     "http-proxy-middleware": "^0.19.1",
-    "immer": "^5.3.6",
+    "immer": "^9.0.6",
     "moment": "^2.24.0",
     "next": "latest",
     "next-redux-saga": "^4.1.2",
